@@ -125,6 +125,32 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+
+.categories {
+	display: flex;
+	justify-content: center;
+	gap: .7rem;
+	margin-bottom: 2.5rem;
+}
+
+.categories button {
+	border: none;
+	background: inherit;
+	border: 1px solid #1D6154;
+	padding: .5rem 1rem;
+	border-radius: 60px; 
+	color: #1D6154;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.categories button:hover {
+	cursor: pointer;
+	background: #1D6154;
+	color: white;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;

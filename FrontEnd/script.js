@@ -9,7 +9,7 @@ function listenerGenerator(categoryBtn) {
             // Runs the default behavior if the selected filter is "Tous"
             listGenerator(works);
         } else {
-            // Creates a custom list that matches the specifically selected filter and send it to the listGenerator
+            // Creates a custom list of works that matches the specifically selected filter and send it to the listGenerator function
             const customListArr = new Array();
             works.forEach(work => {
                 if (categoryBtn.innerText === work.category.name) {
@@ -77,3 +77,4 @@ function listGenerator(array) {
 }
 
 listGenerator(works);
+

@@ -7,6 +7,8 @@ import { fetchWork } from './fetchWork.js';
 
 // Lorsque l'utilisateur clique sur le bouton modifier, générer la modale et son contenu dynamiquement
 
+let deleteItems = [];
+
 export function adminCtrl() {
   const overlayContainer = document.getElementById('dynamic-admin-overlay');
   const modifyBtnContainer = document.getElementById('dynamic-modify-btn');
@@ -38,12 +40,37 @@ export function adminCtrl() {
     `;
     const modifyBtn = document.querySelector('.portfolio__modify-btn');
 
+    button.addEventListener('click', () => {
+      if (!deleteItems === []) {
+        deleteItems.forEach((workId) => {
+          deleteWork(workId);
+        });
+        deleteWork = [];
+      }
+    });
+
     modifyBtn.addEventListener('click', () => {
+      deleteItems = [];
       document
         .getElementById('dynamic-admin-modal')
         .classList.add('open-modal');
       modal();
     });
+  }
+}
+
+function deleteWork(id) {
+  if (localStorage.getItem('token')) {
+    fetch(`http://localhost:5678/api/works/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: 'Bearer ' + localStorage.getItem('token'),
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  } else {
+    return 'Unauthorized !';
   }
 }
 
@@ -99,10 +126,16 @@ export async function modal() {
     const imgContainer = document.createElement('div');
     const img = document.createElement('img');
     const moveIcon = document.createElement('i');
-    const closeIcon = document.createElement('i');
+    const deleteIcon = document.createElement('i');
     const button = document.createElement('button');
 
+    deleteIcon.addEventListener('click', () => {
+      deleteItems.push(work.id);
+      document.querySelector(`[data-id="${work.id}"]`).remove();
+    });
+
     container.classList.add('card');
+    container.setAttribute('data-id', work.id);
     imgContainer.classList.add('card__image-container');
     img.classList.add('card__image');
     img.src = work.imageUrl;
@@ -115,14 +148,14 @@ export async function modal() {
       'fa-xs',
       'fa-solid'
     );
-    closeIcon.classList.add(
+    deleteIcon.classList.add(
       'card__trash-icon',
       'fa-xs',
       'fa-solid',
       'fa-trash-can'
     );
     imgContainer.appendChild(moveIcon);
-    imgContainer.appendChild(closeIcon);
+    imgContainer.appendChild(deleteIcon);
     button.classList.add('card__btn');
     button.textContent = 'éditer';
 

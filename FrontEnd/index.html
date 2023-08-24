@@ -22,27 +22,34 @@
     <script defer type="module" src="./app.js"></script>
   </head>
   <body>
-    <div id="dynamic-admin-overlay"></div>
-    <div id="dynamic-admin-modal"></div>
+    <div id="admin-panel-root"></div>
     <div class="main-container">
       <header>
-        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-        <nav>
-          <ul>
-            <li>projets</li>
-            <li>contact</li>
-            <li><a href="./login.html">login</a></li>
-            <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
-          </ul>
-        </nav>
+        <div class="header__wrapper">
+          <h1 class="header__logo">
+            Sophie Bluel <span>Architecte d'inteérieur</span>
+          </h1>
+          <nav>
+            <ul class="primary-menu">
+              <li>projets</li>
+              <li>contact</li>
+              <li><a id="menu-log-cta" href="./login.html">login</a></li>
+              <li>
+                <img src="./assets/icons/instagram.png" alt="Instagram" />
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
       <main>
-        <section id="introduction">
-          <figure>
-            <img src="./assets/images/sophie-bluel.png" alt="" />
-          </figure>
-          <article>
-            <h2>Designer d'espace</h2>
+        <section class="hero">
+          <div id="portrait-container" class="hero__portrait-container">
+            <figure>
+              <img src="./assets/images/sophie-bluel.png" alt="" />
+            </figure>
+          </div>
+          <article class="hero__text-group">
+            <h2 class="hero__title">Designer d'espace</h2>
             <p>
               Je raconte votre histoire, je valorise vos idées. Je vous
               accompagne de la conception à la livraison finale du chantier.
@@ -60,23 +67,38 @@
             </p>
           </article>
         </section>
-        <section id="portfolio">
-          <div class="portfolio__title-wrapper">
-            <h2>Mes Projets</h2>
-            <div id="dynamic-modify-btn"></div>
+        <section class="portfolio">
+          <div id="portfolio-title-wrapper" class="portfolio__title-wrapper">
+            <h2 class="portfolio__title">Mes Projets</h2>
           </div>
-          <div id="dynamic"></div>
+          <div id="root"></div>
         </section>
-        <section id="contact">
-          <h2>Contact</h2>
-          <p>Vous avez un projet ? Discutons-en !</p>
-          <form action="#" method="post">
-            <label for="name">Nom</label>
-            <input type="text" name="name" id="name" />
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" />
-            <label for="message">Message</label>
+        <section id="contact" class="contact">
+          <div class="contact__text-group">
+            <h2 class="contact__title">Contact</h2>
+            <p>Vous avez un projet ? Discutons-en !</p>
+          </div>
+
+          <form class="contact__form" action="#" method="post">
+            <label class="contact__label" for="name">Nom</label>
+            <input
+              class="contact__input"
+              type="text"
+              name="name"
+              id="name"
+              autocomplete="name"
+            />
+            <label class="contact__label" for="email">Email</label>
+            <input
+              class="contact__input"
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="email"
+            />
+            <label class="contact__label" for="message">Message</label>
             <textarea
+              class="contact__input textarea"
               name="message"
               id="message"
               cols="30"
@@ -89,7 +111,7 @@
 
       <footer>
         <nav>
-          <ul>
+          <ul class="secondary-menu">
             <li>Mentions Légales</li>
           </ul>
         </nav>

@@ -12,41 +12,64 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <script defer type="module" src="./login.js"></script>
+    <script defer type="module" src="./features/Login.js"></script>
   </head>
   <body>
     <div class="main-container">
       <header>
-        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-        <nav>
-          <ul>
-            <li><a href="./index.html">projets</a></li>
-            <li>contact</li>
-            <li class="bold">login</li>
-            <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
-          </ul>
-        </nav>
+        <div class="header__wrapper">
+          <h1 class="header__logo">
+            Sophie Bluel <span>Architecte d'inteérieur</span>
+          </h1>
+          <nav>
+            <ul class="primary-menu">
+              <li><a href="./index.html">projets</a></li>
+              <li>contact</li>
+              <li class="bold">login</li>
+              <li>
+                <img src="./assets/icons/instagram.png" alt="Instagram" />
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
       <main>
         <section class="login">
-          <h2>Log In</h2>
-          <span class="problem"></span>
+          <h2 class="login__title">Log In</h2>
+          <span id="login-error-message" class="login__error-message"></span>
           <form id="login-form" method="post">
-            <label for="email">E-mail</label>
-            <input name="email" type="email" required />
-            <span class="error"></span>
-            <label for="password">Mot de passe</label>
-            <input name="password" type="password" required />
-            <span class="error"></span>
+            <label class="login__label" for="login-email">E-mail</label>
+            <input
+              id="login-email"
+              class="login__input"
+              name="email"
+              type="email"
+              placeholder="sophie.bluel@test.tld"
+              autocomplete="email"
+              required
+            />
+            <label class="login__label" for="login-password"
+              >Mot de passe</label
+            >
+            <input
+              id="login-password"
+              class="login__input"
+              name="password"
+              type="password"
+              placeholder="S0phie"
+              required
+            />
             <input type="submit" value="Se connecter" />
           </form>
-          <p><a href="#">Mot de passe oublié</a></p>
+          <p class="login__forgot-password">
+            <a href="#">Mot de passe oublié</a>
+          </p>
         </section>
       </main>
 
       <footer>
         <nav>
-          <ul>
+          <ul class="secondary-menu">
             <li>Mentions Légales</li>
           </ul>
         </nav>

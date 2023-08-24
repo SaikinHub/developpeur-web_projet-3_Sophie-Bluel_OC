@@ -685,6 +685,7 @@ input[type='submit'] {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  background: white;
   outline: transparent;
   padding-left: 1rem;
   margin-top: 0.5rem;

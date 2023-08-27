@@ -181,7 +181,7 @@ async function uploadModal() {
   imageInput.addEventListener('change', () => {
     file = imageInput.files[0];
     type = file?.type ?? undefined;
-    size = file?.size < 4000000 ? true : false;
+    size = file?.size < 4000000;
 
     validFile = acceptedTypes.includes(type) && size;
 

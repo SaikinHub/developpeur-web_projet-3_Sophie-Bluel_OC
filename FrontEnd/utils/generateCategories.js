@@ -14,6 +14,7 @@ export function generateCategories() {
     itemElement.textContent = category;
 
     if (category === 'Tous') {
+      itemElement.classList.add('active');
       itemElement.addEventListener('click', () => {
         const allCategories = document.querySelectorAll('#categories-menu li');
         allCategories.forEach((category) => {
